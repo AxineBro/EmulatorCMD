@@ -7,8 +7,9 @@ public class Color {
 		String[] colorCommandComponents = colorCommand.toLowerCase().split(" ");
 		System.out.print(colorCommandComponents.length);
 		if(colorCommandComponents.length == 1) {
-			MainFrame.setBackgroundText(MainFrame.getColorsArray().get(0x0));
-			MainFrame.setBackgroundText(MainFrame.getColorsArray().get(0xf));
+			MainFrame.getTextCMD().setForeground(MainFrame.getColorsArray().get(0xf));
+			MainFrame.getTextCMD().setBackground(MainFrame.getColorsArray().get(0x0));
+			MainFrame.getScrollPane().getVerticalScrollBar().setBackground(MainFrame.getColorsArray().get(0x0));
 			return null;
 		}else if(colorCommandComponents.length == 2 && colorCommandComponents[1].length() == 2) {
 			try {
