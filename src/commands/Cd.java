@@ -14,13 +14,13 @@ public class Cd {
 			if(!cdCommand.contains("\\")) {
 				for(SystemElements dirs : currentDirectory.getComponentsDir()) {
 					if(cdCommandComponents[1].toLowerCase().equals(dirs.getSystemElementsName().toLowerCase())) {
-						basicFiles.MainFrame.setCurrentDirectory((Dir) dirs);
+						basicFiles.CMDFrame.setCurrentDirectory((Dir) dirs);
 						return null;
 					}
 				}
 			}else {
 				if(searchSystemElements(cdCommandComponents[1]) != null) {
-					basicFiles.MainFrame.setCurrentDirectory(searchSystemElements(cdCommandComponents[1]));
+					basicFiles.CMDFrame.setCurrentDirectory(searchSystemElements(cdCommandComponents[1]));
 					return null;
 				}
 			}
@@ -28,7 +28,7 @@ public class Cd {
 		return "\r\nСистеме не удается найти указанный путь.";
 	}
 	public static basicFiles.Dir searchSystemElements(String fullSystemElementName){
-		basicFiles.Dir parentElement = basicFiles.MainFrame.getParentDirectory();
+		basicFiles.Dir parentElement = basicFiles.CMDFrame.getParentDirectory();
 		basicFiles.Dir resultElement = parentElement;
 		String[] path = fullSystemElementName.split("\\\\");
 		if(path.length < 2 && !path[0].toLowerCase().equals(parentElement.getSystemElementsName().toLowerCase()) ) return null;
